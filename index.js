@@ -4,17 +4,6 @@ const axios = require('axios')
 const cheerio = require('cheerio')
 const app = express()
 
-
-
-   // arrow functions won't work here
-
-
-
-
-
-
-
-
 const newspapers = [
     {
         name: 'cityam',
