@@ -6,27 +6,37 @@ const app = express()
 
 const newspapers = [   
     {
-        name: 'The morning lk',
-        address: 'https://www.themorning.lk/category/news//',
+        name: 'themorninglk',
+        address: 'https://www.themorning.lk/category/news/',
         base: ''
     },
     {
-        name: 'Island',
+        name: 'island',
         address: 'https://island.lk/category/news/',
         base: ''
     },
     {
-        name: 'Adaderana',
+        name: 'ft',
+        address: 'https://www.ft.lk/',
+        base: ''
+    },
+    {
+        name: 'dailymirror',
+        address: 'https://www.dailymirror.lk/',
+        base: ''
+    },
+    {
+        name: 'adaderana',
         address: 'http://www.adaderana.lk/hot-news',
         base: ''
     },
     {
-        name: 'Dailynews',
+        name: 'dailynews',
         address: 'https://dailynews.lk/category/local',
         base: ''
     },
     {
-        name: 'Sirasa',
+        name: 'sirasa',
         address: 'https://www.newsfirst.lk/latest-news/',
         base: ''
     }
@@ -40,7 +50,7 @@ newspapers.forEach(newspaper => {
         .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
-            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan")' ,  html).each(function () {
+            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan"), a:contains("sri-lanka"), a:contains("IMF")' ,  html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
 
@@ -75,7 +85,7 @@ app.get('/news/:newspaperId', (req, res) => {
             const $ = cheerio.load(html)
             const specificArticles = []
 
-            $('a:contains("climate")', html).each(function () {
+            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan"), a:contains("sri-lanka"), a:contains("IMF")' , html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
                 specificArticles.push({
