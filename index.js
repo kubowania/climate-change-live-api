@@ -50,7 +50,7 @@ newspapers.forEach(newspaper => {
         .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
-            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan"), a:contains("sri-lanka"), a:contains("IMF")' ,  html).each(function () {
+            $('a:contains("-")' ,  html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
 
@@ -85,7 +85,7 @@ app.get('/news/:newspaperId', (req, res) => {
             const $ = cheerio.load(html)
             const specificArticles = []
 
-            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan"), a:contains("sri-lanka"), a:contains("IMF")' , html).each(function () {
+            $('a:contains("-")' , html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
                 specificArticles.push({
