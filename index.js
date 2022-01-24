@@ -6,8 +6,8 @@ const app = express()
 
 const newspapers = [   
     {
-        name: 'Daily Mirror',
-        address: 'https://www.dailymirror.lk/latest-news/108',
+        name: 'The morning lk',
+        address: 'https://www.themorning.lk/category/news//',
         base: ''
     },
     {
@@ -19,8 +19,17 @@ const newspapers = [
         name: 'Adaderana',
         address: 'http://www.adaderana.lk/hot-news',
         base: ''
+    },
+    {
+        name: 'Dailynews',
+        address: 'https://dailynews.lk/category/local',
+        base: ''
+    },
+    {
+        name: 'Sirasa',
+        address: 'https://www.newsfirst.lk/latest-news/',
+        base: ''
     }
-
 
 ]
 
@@ -32,7 +41,7 @@ newspapers.forEach(newspaper => {
             const html = response.data
             const $ = cheerio.load(html)
 
-            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani")', html).each(function () {
+            $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan")' ,  html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
 
