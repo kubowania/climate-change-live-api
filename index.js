@@ -40,7 +40,6 @@ newspapers.forEach(newspaper => {
         .then(response => {
             const html = response.data
             const $ = cheerio.load(html)
-
             $('a:contains("coronavirus"), a:contains("covid"), a:contains("Shani"), a:contains("booster") ,a:contains("Rajapaksha"),a:contains("Ranjan")' ,  html).each(function () {
                 const title = $(this).text()
                 const url = $(this).attr('href')
