@@ -3,8 +3,7 @@ const express = require('express')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const app = express()
-
-const newspapers = [   
+const newspapers = [
     {
         name: 'themorninglk',
         address: 'https://www.themorning.lk/category/news/',
